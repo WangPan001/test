@@ -1,0 +1,21 @@
+security: 
+  user:
+    name: admin
+    password: admin
+server:
+  port: 8890
+eureka: 
+  datacenter: SpringCloud   # 修改 http://localhost:8761 地址 Eureka 首页上面 System Status 的 Data center 显示信息
+  environment: Test         # 修改 http://localhost:8761 地址 Eureka 首页上面 System Status 的 Environment 显示信息
+  instance:
+    lease-renewal-interval-in-seconds: 5      # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-expiration-duration-in-seconds: 10  # 发呆时间，即服务续约到期时间（缺省为90s）
+    hostname: localhost
+  client: 
+    register-with-eureka: false #指示此实例是否应将其信息注册到eureka服务器以供其他人发现。在某些情况下，您不希望实例被发现，而您只想发现其他实例。如本地测试 ；不向注册中心注册自己
+    fetch-registry: false #指示该客户端是否应从eureka服务器获取eureka注册表信息。
+    service-url:
+      defaultZone: http://admin:admin@localhost:8890/eureka #注册中心访问地址
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka #注册中心访问地址
+    healthcheck:  # 健康检查
+      enabled: true # 开启健康检查（依赖spring-boot-starter-actuator）配置 eureka 登录密码，输入地址 http://localhost:8761 时候就需要输入这个用户名密码登录进去
