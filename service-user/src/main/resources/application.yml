@@ -1,0 +1,26 @@
+server:
+  port: 8893
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://admin:admin@localhost:8890/eureka/
+  instance:
+    ip-address: true
+spring:
+  application:
+    name: service-user
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jbdc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+    username: test
+    password: 
+#日志打印
+logging:
+  level:
+    root: info
+    com.dianshang.cn: debug
+
+mybatis: 
+  mapper-locations: classpath:com/dianshang/cn/user/dao/*.xml
+  typeAliasesPackage: com.dianshang.cn.model.entity
+    

@@ -56,5 +56,6 @@
   		<module>../eureka-server</module>
   		<module>../springcloud-config-client</module>
   		<module>../springcloud-config-server</module>
+  		<module>../service-user</module>
   	</modules>
 </project>
