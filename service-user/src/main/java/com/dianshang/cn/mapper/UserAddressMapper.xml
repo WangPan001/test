@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dianshang.cn.dao.UserAddressMapper">
+  <resultMap id="BaseResultMap" type="com.dianshang.cn.model.entity.UserAddress">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="addressee" jdbcType="VARCHAR" property="addressee" />
+    <result column="phone" jdbcType="INTEGER" property="phone" />
+    <result column="is_default" jdbcType="CHAR" property="isDefault" />
+    <result column="province_id" jdbcType="INTEGER" property="provinceId" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="area_id" jdbcType="INTEGER" property="areaId" />
+    <result column="address_detail" jdbcType="VARCHAR" property="addressDetail" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, address_id, user_id, addressee, phone, is_default, province_id, city_id, area_id, 
+    address_detail, sort, is_delete, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_address
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_address
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dianshang.cn.model.entity.UserAddress">
+    insert into user_address (id, address_id, user_id, 
+      addressee, phone, is_default, 
+      province_id, city_id, area_id, 
+      address_detail, sort, is_delete, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{addressId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{addressee,jdbcType=VARCHAR}, #{phone,jdbcType=INTEGER}, #{isDefault,jdbcType=CHAR}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{addressDetail,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{isDelete,jdbcType=CHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dianshang.cn.model.entity.UserAddress">
+    insert into user_address
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="addressee != null">
+        addressee,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="isDefault != null">
+        is_default,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="areaId != null">
+        area_id,
+      </if>
+      <if test="addressDetail != null">
+        address_detail,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addressee != null">
+        #{addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="isDefault != null">
+        #{isDefault,jdbcType=CHAR},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="addressDetail != null">
+        #{addressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dianshang.cn.model.entity.UserAddress">
+    update user_address
+    <set>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addressee != null">
+        addressee = #{addressee,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=INTEGER},
+      </if>
+      <if test="isDefault != null">
+        is_default = #{isDefault,jdbcType=CHAR},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        area_id = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="addressDetail != null">
+        address_detail = #{addressDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dianshang.cn.model.entity.UserAddress">
+    update user_address
+    set address_id = #{addressId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      addressee = #{addressee,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=INTEGER},
+      is_default = #{isDefault,jdbcType=CHAR},
+      province_id = #{provinceId,jdbcType=INTEGER},
+      city_id = #{cityId,jdbcType=INTEGER},
+      area_id = #{areaId,jdbcType=INTEGER},
+      address_detail = #{addressDetail,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

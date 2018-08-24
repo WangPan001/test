@@ -20,30 +20,215 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<swagger.version>2.8.0</swagger.version>
+		<mybatis_boot.version>1.1.1</mybatis_boot.version>
+		<mybatis_core.version>1.3.5</mybatis_core.version>
+		<mybatis.version>3.4.1</mybatis.version>
+		<mybatis_spring.version>1.3.1</mybatis_spring.version>
+		<common.version>0.0.1-SNAPSHOT</common.version>
+		<aliJson.version>1.2.47</aliJson.version>
+		<json_lib.version>2.4</json_lib.version>
+		<pagehelper.version>4.1.6</pagehelper.version>
+		<shrio.version>1.2.2</shrio.version>
 	</properties>
 
 	<dependencies>
+	
+		<dependency>
+		        <groupId>org.springframework.boot</groupId>
+		        <artifactId>spring-boot-devtools</artifactId>
+		        <optional>true</optional>
+		</dependency>
+	
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-redis</artifactId>
 		</dependency>
 
 		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-freemarker -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
+		<dependency>
+		    <groupId>org.thymeleaf</groupId>
+		    <artifactId>thymeleaf</artifactId>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+		<dependency>
+		    <groupId>org.thymeleaf</groupId>
+		    <artifactId>thymeleaf-spring4</artifactId>
+		</dependency>
+		
+		<!-- jstl标签 -->
+	    <dependency>
+	      	<groupId>org.apache.tomcat.embed</groupId>
+	      	<artifactId>tomcat-embed-jasper</artifactId>
+	      	<scope>provided</scope>
+	    </dependency>
+	    <dependency>
+	      	<groupId>javax.servlet</groupId>
+	      	<artifactId>jstl</artifactId>
+	    </dependency>
+        
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<!-- Jdbc 模块 -->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-jdbc</artifactId>
+	    </dependency>
         
         <dependency>
           <groupId>org.springframework.cloud</groupId>
           <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 		
+		<!-- mybatis集成 -->
 		<dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.1.1</version>
+            <version>${mybatis_boot.version}</version>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+		<dependency>
+		    <groupId>org.mybatis.generator</groupId>
+		    <artifactId>mybatis-generator-core</artifactId>
+		    <version>${mybatis_core.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>${mybatis.version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>${mybatis_spring.version}</version>
+		</dependency>
+		
+		<!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>common</groupId>
+			<artifactId>common</artifactId>
+			<version>${common.version}</version>
+		</dependency>
+		
+		<!-- json插件 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${aliJson.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>${json_lib.version}</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		
+        <!-- 分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>${pagehelper.version}</version>
+		</dependency>
+		
+		<!-- httpclient 插件 -->
+		<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+        </dependency>
+        
+        <!-- shrio -->
+        <dependency>
+	        <groupId>org.apache.shiro</groupId>
+	        <artifactId>shiro-core</artifactId>
+	        <version>${shrio.version}</version>
+	    </dependency>
+	    
+	    <dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-spring</artifactId>
+		    <version>${shrio.version}</version>
+		</dependency>
+		
+		<!-- shiro ehcache (shiro缓存)-->
+        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-ehcache -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${shrio.version}</version>
+        </dependency>
+        
+        <!-- shiro thymeleaf-->
+        <dependency>
+            <groupId>com.github.theborakompanioni</groupId>
+            <artifactId>thymeleaf-extras-shiro</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+	    
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<version>1.4.1.RELEASE</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.crazycake/shiro-redis -->
+		<dependency>
+		    <groupId>org.crazycake</groupId>
+		    <artifactId>shiro-redis</artifactId>
+		    <version>3.1.0</version>
+		</dependency>
+
+
+		
+		
 	</dependencies>
 
 	<build>
@@ -52,6 +237,43 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!-- 添加mybatis generator maven插件 -->
+			<plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId> mysql</groupId>
+                        <artifactId> mysql-connector-java</artifactId>
+                        <version>5.1.39</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.5</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!--允许移动生成的文件 -->
+                    <verbose>true</verbose>
+                    <!-- 是否覆盖 -->
+                    <overwrite>true</overwrite>
+                    <!-- 自动生成的配置 -->
+                    <configurationFile>
+                        src/main/resources/mybatis-generator.xml</configurationFile>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 

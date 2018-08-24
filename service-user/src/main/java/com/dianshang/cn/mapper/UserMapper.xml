@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dianshang.cn.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.dianshang.cn.model.entity.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="wchet_token" jdbcType="VARCHAR" property="wchetToken" />
+    <result column="user_password" jdbcType="VARCHAR" property="userPassword" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="is_delete" jdbcType="CHAR" property="isDelete" />
+    <result column="channel_id" jdbcType="CHAR" property="channelId" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, telphone, wchet_token, user_password, create_time, type, last_login_time, is_delete, 
+    channel_id, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dianshang.cn.model.entity.User">
+    insert into user (id, telphone, wchet_token, 
+      user_password, create_time, type, 
+      last_login_time, is_delete, channel_id, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{wchetToken,jdbcType=VARCHAR}, 
+      #{userPassword,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{type,jdbcType=CHAR}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=CHAR}, #{channelId,jdbcType=CHAR}, 
+      #{updateTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dianshang.cn.model.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="telphone != null">
+        telphone,
+      </if>
+      <if test="wchetToken != null">
+        wchet_token,
+      </if>
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="channelId != null">
+        channel_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="telphone != null">
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="wchetToken != null">
+        #{wchetToken,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dianshang.cn.model.entity.User">
+    update user
+    <set>
+      <if test="telphone != null">
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="wchetToken != null">
+        wchet_token = #{wchetToken,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=CHAR},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=CHAR},
+      </if>
+      <if test="channelId != null">
+        channel_id = #{channelId,jdbcType=CHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dianshang.cn.model.entity.User">
+    update user
+    set telphone = #{telphone,jdbcType=VARCHAR},
+      wchet_token = #{wchetToken,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=CHAR},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=CHAR},
+      channel_id = #{channelId,jdbcType=CHAR},
+      update_time = #{updateTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="checkUser" parameterType="com.dianshang.cn.model.entity.User" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where telphone = #{telphone,jdbcType=VARCHAR} and is_delete = 0
+  </select>
+  
+  <select id="selectUserList" parameterType="com.dianshang.cn.model.vo.UserVo" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List" />
+  	from user
+  	where 1=1
+  	<if test="type != null and type != ''">
+  		and type = #{type,jdbcType=CHAR} 
+  	</if>
+  	and is_delete = '0'
+  	order by create_time desc
+  </select>
+  
+  <select id="login" parameterType="com.dianshang.cn.model.entity.User" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from user
+  	where telphone = #{telphone,jdbcType=VARCHAR} and is_delete = 0 and user_password = #{userPassword,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getPassword" parameterType="java.lang.String" resultType="java.lang.String">
+  	select user_password as password from user where telphone = #{telphone, jdbcType=VARCHAR}
+  </select>
+  
+  <select id="getRole" parameterType="java.lang.String" resultType="java.lang.String">
+  	select sr.role_value from user u
+  	left join sys_user_role sur on u.id = sur.user_id
+  	left join sys_role sr on sr.role_id = sur.role_id
+  	where telphone = #{telphone, jdbcType=VARCHAR} 
+  </select>
+</mapper>

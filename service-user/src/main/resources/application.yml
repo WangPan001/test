@@ -7,13 +7,32 @@ eureka:
   instance:
     ip-address: true
 spring:
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html
+#    mode: HTML5
+#    encoding: utf-8
+#    cache: false #热部署文件，页面不产生缓存，及时更新
+#  resources: 
+#    chain:
+#      strategy:
+#        content:
+#          enabled: true
+#          paths: /**
+#    static-locations: /static/**
   application:
     name: service-user
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jbdc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+    url: jdbc:mysql://localhost:3306/ds_user?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
     username: test
     password: 
+  redis: 
+    shiro: 
+      host: 
+      port: 0000
+      timeout: 10
+      password: 
 #日志打印
 logging:
   level:
@@ -21,6 +40,6 @@ logging:
     com.dianshang.cn: debug
 
 mybatis: 
-  mapper-locations: classpath:com/dianshang/cn/user/dao/*.xml
+  mapper-locations: classpath:com/dianshang/cn/mapper/*.xml
   typeAliasesPackage: com.dianshang.cn.model.entity
     

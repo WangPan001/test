@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dianshang.cn.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dianshang.cn.model.entity.UserInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="telphone" jdbcType="INTEGER" property="telphone" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="identification_id" jdbcType="VARCHAR" property="identificationId" />
+    <result column="pay_password" jdbcType="VARCHAR" property="payPassword" />
+    <result column="integral" jdbcType="INTEGER" property="integral" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="head_img_url" jdbcType="VARCHAR" property="headImgUrl" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="brith_date" jdbcType="TIMESTAMP" property="brithDate" />
+    <result column="plate_num" jdbcType="VARCHAR" property="plateNum" />
+    <result column="occupation" jdbcType="VARCHAR" property="occupation" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="income" jdbcType="DECIMAL" property="income" />
+    <result column="constellation" jdbcType="VARCHAR" property="constellation" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_active" jdbcType="CHAR" property="isActive" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="level_code" jdbcType="VARCHAR" property="levelCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, telphone, real_name, identification_id, pay_password, integral, nick_name, 
+    head_img_url, sex, brith_date, plate_num, occupation, nation, education, income, 
+    constellation, hobby, email, create_time, update_time, is_active, remark, level_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dianshang.cn.model.entity.UserInfo">
+    insert into user_info (id, user_id, telphone, 
+      real_name, identification_id, pay_password, 
+      integral, nick_name, head_img_url, 
+      sex, brith_date, plate_num, 
+      occupation, nation, education, 
+      income, constellation, hobby, 
+      email, create_time, update_time, 
+      is_active, remark, level_code
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{telphone,jdbcType=INTEGER}, 
+      #{realName,jdbcType=VARCHAR}, #{identificationId,jdbcType=VARCHAR}, #{payPassword,jdbcType=VARCHAR}, 
+      #{integral,jdbcType=INTEGER}, #{nickName,jdbcType=VARCHAR}, #{headImgUrl,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{brithDate,jdbcType=TIMESTAMP}, #{plateNum,jdbcType=VARCHAR}, 
+      #{occupation,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, 
+      #{income,jdbcType=DECIMAL}, #{constellation,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isActive,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{levelCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dianshang.cn.model.entity.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="telphone != null">
+        telphone,
+      </if>
+      <if test="realName != null">
+        real_name,
+      </if>
+      <if test="identificationId != null">
+        identification_id,
+      </if>
+      <if test="payPassword != null">
+        pay_password,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="headImgUrl != null">
+        head_img_url,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="brithDate != null">
+        brith_date,
+      </if>
+      <if test="plateNum != null">
+        plate_num,
+      </if>
+      <if test="occupation != null">
+        occupation,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="income != null">
+        income,
+      </if>
+      <if test="constellation != null">
+        constellation,
+      </if>
+      <if test="hobby != null">
+        hobby,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isActive != null">
+        is_active,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="levelCode != null">
+        level_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="telphone != null">
+        #{telphone,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="identificationId != null">
+        #{identificationId,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null">
+        #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="headImgUrl != null">
+        #{headImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="brithDate != null">
+        #{brithDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plateNum != null">
+        #{plateNum,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null">
+        #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="constellation != null">
+        #{constellation,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null">
+        #{isActive,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="levelCode != null">
+        #{levelCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dianshang.cn.model.entity.UserInfo">
+    update user_info
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="telphone != null">
+        telphone = #{telphone,jdbcType=INTEGER},
+      </if>
+      <if test="realName != null">
+        real_name = #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="identificationId != null">
+        identification_id = #{identificationId,jdbcType=VARCHAR},
+      </if>
+      <if test="payPassword != null">
+        pay_password = #{payPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="headImgUrl != null">
+        head_img_url = #{headImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="brithDate != null">
+        brith_date = #{brithDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="plateNum != null">
+        plate_num = #{plateNum,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null">
+        income = #{income,jdbcType=DECIMAL},
+      </if>
+      <if test="constellation != null">
+        constellation = #{constellation,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isActive != null">
+        is_active = #{isActive,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="levelCode != null">
+        level_code = #{levelCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dianshang.cn.model.entity.UserInfo">
+    update user_info
+    set user_id = #{userId,jdbcType=INTEGER},
+      telphone = #{telphone,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      identification_id = #{identificationId,jdbcType=VARCHAR},
+      pay_password = #{payPassword,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=INTEGER},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      head_img_url = #{headImgUrl,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
+      brith_date = #{brithDate,jdbcType=TIMESTAMP},
+      plate_num = #{plateNum,jdbcType=VARCHAR},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      income = #{income,jdbcType=DECIMAL},
+      constellation = #{constellation,jdbcType=VARCHAR},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_active = #{isActive,jdbcType=CHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      level_code = #{levelCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="queryUserInfo" parameterType="com.dianshang.cn.model.entity.User" resultMap="BaseResultMap">
+  	select 
+  	<include refid="Base_Column_List"/>
+  	from user_info
+  	where user_id = #{id,jdbcType=INTEGER}
+  </select>
+</mapper>
