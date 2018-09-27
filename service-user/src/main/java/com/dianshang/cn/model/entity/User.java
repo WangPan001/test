@@ -2,13 +2,19 @@ package com.dianshang.cn.model.entity;
 
 import java.util.Date;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value="user对象",description="用户对象user")
 public class User {
     private Integer id;
-
+    
+    @ApiModelProperty(value="用户名/手机号",name="telphone",example="18000000001")
     private String telphone;
 
     private String wchetToken;
-
+    
+    @ApiModelProperty(value="密码",name="userPassword")
     private String userPassword;
 
     private Date createTime;

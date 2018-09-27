@@ -35,7 +35,7 @@ public class UserController {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/user", method = {RequestMethod.POST})
-	@ApiOperation(value="userManager", notes="用户注册")
+	@ApiOperation(value="用户注册", notes="用户注册")
 	public ResponseEntity<?> registerUser(@RequestBody User user){
 		ResponseEntity<?> result = null;
 		AbstractRestResponseUtil restResponseUtil = new DefaultRestApiResponse();
@@ -58,7 +58,7 @@ public class UserController {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/users", method = {RequestMethod.POST})
-	@ApiOperation(value="userManager", notes="用户列表")
+	@ApiOperation(value="用户列表", notes="用户列表")
 	public ResponseEntity<?> queryUserList(@RequestBody UserVo userVo){
 		ResponseEntity<?> result = null;
 		AbstractRestResponseUtil restResponseUtil = new DefaultRestApiResponse();
@@ -88,7 +88,7 @@ public class UserController {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/user", method = RequestMethod.PUT)
-	@ApiOperation(value = "userManager", notes="用户登录")
+	@ApiOperation(value = "用户登录", notes="用户登录")
 	public ResponseEntity<?> login(@RequestBody User user){
 		ResponseEntity<?> result = null;
 		AbstractRestResponseUtil restResponseUtil = new DefaultRestApiResponse();

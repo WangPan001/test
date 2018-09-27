@@ -12,12 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dianshang.cn.dao.UserMapper;
 import com.dianshang.cn.utils.AbstractRestResponseUtil;
 import com.dianshang.cn.utils.DefaultRestApiResponse;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 @RestController
+@Api(value="userManager", description="用户管理")
 public class TestController {
 
 	@Autowired
 	private UserMapper userMapper;
 	
+	@ApiOperation(value="测试", notes="测试")
 	@RequestMapping("/guest/enter")
 	public ResponseEntity<?> login(){
 		ResponseEntity result = null;
